@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "413000996591",
+    "project_id": "home-plan-app",
+    "storage_bucket": "home-plan-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413000996591:android:002c39a4bd517402fcad1a",
+        "android_client_info": {
+          "package_name": "com.example.homeplan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413000996591-305ohc1thagklkp511avqv3vgr58hgh1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homeplan",
+            "certificate_hash": "91ccb1cc8db2a09963f837a0a387dbbed9d72a3a"
+          }
+        },
+        {
+          "client_id": "413000996591-45km2nm0g4ldm5o0duift0ei2um8lput.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgJFwJYVOBJzvxNPruemcZvKf9weJKR_g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413000996591-45km2nm0g4ldm5o0duift0ei2um8lput.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
