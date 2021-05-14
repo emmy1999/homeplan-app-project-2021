@@ -1,11 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:homeplan/authentication.dart';
-import 'package:homeplan/home-w.dart';
-import 'package:homeplan/login-signup/login.dart';
-import 'package:homeplan/login-signup/signup.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:homeplan/home.dart';
+
+import 'package:homeplan/login-signup/auth2.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:homeplan/authentication.dart';
+import 'package:homeplan/login-signup/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,9 +28,9 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'Home Plan App',
+        title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.brown,
+          primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: AuthenticationWrapper(),
@@ -44,9 +45,10 @@ class AuthenticationWrapper extends StatelessWidget {
     final firebaseUser = context.watch<User>();
 
     if (firebaseUser != null) {
-      return HomePage();
+      return Homev();
+    } else {
+      SignInPage();
     }
-    //return SignupPage();
-    return SignInPage();
+    return Authenticate();
   }
 }

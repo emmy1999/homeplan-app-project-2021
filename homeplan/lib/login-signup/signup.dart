@@ -1,130 +1,142 @@
-import 'package:homeplan/authentication.dart';
+//import 'package:homeplan/login-signup/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+import 'package:homeplan/authentication.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:homeplan/login-signup/email_verify.dart';
+//import 'package:homeplan/login-signup/auth.dart';
 
 class SignupPage extends StatefulWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
+  final Function toggleView;
+  SignupPage({this.toggleView});
   @override
-  _SignupPageState createState() => _SignupPageState();
+  _Signupwin createState() => _Signupwin();
 }
 
-Widget Emailbox() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        'Email',
-        style: TextStyle(
-            color: Colors.brown, fontSize: 18, fontWeight: FontWeight.bold),
-      ),
-      SizedBox(height: 12),
-      Container(
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
-            color: Colors.white12,
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.white24, blurRadius: 4, offset: Offset(0, 1))
-            ]),
-        height: 55,
-        child: TextField(
-          keyboardType: TextInputType.emailAddress,
-          style: TextStyle(color: Colors.black),
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 12),
-              prefixIcon: Icon(Icons.email, color: Color(0xff008080)),
-              hintText: 'Email',
-              hintStyle: TextStyle(color: Colors.white38)),
-        ),
-      )
-    ],
-  );
-}
-Widget Passwordbox() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        'Password',
-        style: TextStyle(
-            color: Colors.brown, fontSize: 18, fontWeight: FontWeight.bold),
-      ),
-      SizedBox(height: 12),
-      Container(
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
-            color: Colors.white12,
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.white24, blurRadius: 4, offset: Offset(0, 1))
-            ]),
-        height: 55,
-        child: TextField(
-          obscureText: true,
-          style: TextStyle(color: Colors.black),
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 12),
-              prefixIcon: Icon(Icons.lock, color: Color(0xff008080)),
-              hintText: 'Password',
-              hintStyle: TextStyle(color: Colors.white38)),
-        ),
-      )
-    ],
-  );
-}
+class _Signupwin extends State<SignupPage> {
+  // final AuthService _auth = AuthService();
 
-class _SignupPageState extends State<SignupPage> {
+  // intialising variables for text field
+  String email;
+  String password, password2;
+  final TextEditingController emailc = TextEditingController();
+  final TextEditingController passwordc = TextEditingController();
+  final auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light,
-      child: GestureDetector(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              height: double.infinity,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                    Color(0x66008080),
-                    Color(0x99008080),
-                    Color(0xcc008080),
-                    Color(0xff008080),
-                  ])),
-              child: SingleChildScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 120),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Sign Up Here ',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff93ddf9),
-                          fontSize: 38),
-                    ),
-                    SizedBox(height: 50),
-                    Emailbox(),
-                     SizedBox(height: 25),
-                    Passwordbox()
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+      backgroundColor: Color(0x99acdef8),
+      appBar: AppBar(
+        elevation: 0.0,
+        title: Text('Signup Window'),
+        backgroundColor: Color(0x33acdef8),
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.person),
+            label: Text('Sign In'),
+            onPressed: () => widget.toggleView(),
+          ),
+        ],
       ),
-    ));
+      body: Padding(
+          padding: EdgeInsets.all(24.0),
+          child: Center(
+              child: Form(
+                  autovalidate: true,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(top:0),
+                        child: Image.asset(
+                          "assets/images/app_icon.png",
+                          width: 100,
+                          height: 30,
+                        ),
+                      ),
+                      TextFormField(
+                        controller: emailc,
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: "Required"),
+                          EmailValidator(
+                              errorText: 'enter a valid email address')
+                        ]),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "enter your Email address",
+                        ),
+                        onChanged: (val) {
+                          setState(() => email = val);
+                        },
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 18.0),
+                        child: TextFormField(
+                          controller: passwordc,
+                          validator: MinLengthValidator(6,
+                              errorText: "Please enter a valid password"),
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "enter your Password",
+                          ),
+                          obscureText: true,
+                          onChanged: (val) {
+                            setState(() => password = val);
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 18.0),
+                        child: TextFormField(
+                          validator: MinLengthValidator(6,
+                              errorText: "Please enter a valid password"),
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "verify your Password",
+                          ),
+                          obscureText: true,
+                          onChanged: (val) {
+                            setState(() => password2 = val);
+                          },
+                        ),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(
+                            top: 18.0,
+                          ),
+                          child: RaisedButton(
+                            onPressed: () {
+                             // print(email);
+                              //print(password);
+                              //print(password2);
+
+                              if ((email.contains('@')) &&
+                                  (password.length > 6)) {
+                                print('validated');
+                                if (password == password2) {
+                                  context
+                                      .read<AuthenticationService>()
+                                      .signupem(
+                                        email: emailc.text.trim(),
+                                        password: passwordc.text.trim(),
+                                      );
+                                } else {
+                                  print('password did not match');
+                                //  print(password);
+                                //  print(password2);
+                                }
+                              } else {
+                                print('not validated');
+                              }
+                            },
+                            child: Text("Sign up"),
+                            color: Color(0xffea4d1b),
+                          )),
+                    ],
+                  )))),
+    );
   }
 }
