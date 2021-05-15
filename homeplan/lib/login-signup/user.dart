@@ -5,3 +5,5 @@ class User {
   User({ this.uid });
 
 }
+
+// getting the user uid from firebase.

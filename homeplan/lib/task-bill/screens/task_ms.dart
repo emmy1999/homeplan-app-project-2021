@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:homeplan/task-bill/providers/task_provider.dart';
 import 'package:homeplan/task-bill/screens/home_task.dart';
 import 'package:provider/provider.dart';
-
+// this widget is used to call the task screen.
 class Appentry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

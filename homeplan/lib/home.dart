@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homeplan/authentication.dart';
-import 'package:homeplan/task-bill/screens/task_app.dart';
+import 'package:homeplan/task-bill/screens/task_ms.dart';
 import 'package:provider/provider.dart';
 import 'package:homeplan/nav_bar.dart';
 import 'package:homeplan/main.dart';
@@ -12,7 +12,7 @@ class Homev extends StatefulWidget {
 
   Home_view createState() => Home_view();
 }
-
+//this is the main home page of the app. WHen a user is authenticated is redirected to this page.
 class Home_view extends State<Homev> {
   @override
   Widget build(BuildContext context) {

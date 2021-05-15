@@ -12,19 +12,20 @@ class BilleScreen extends StatefulWidget {
   @override
   _BilleScreenState createState() => _BilleScreenState();
 }
-
+// declaring the controller.
 class _BilleScreenState extends State<BilleScreen> {
   final billController = TextEditingController();
   final pnameController = TextEditingController();
   final noteController = TextEditingController();
   final priceController = TextEditingController();
   final paidController = TextEditingController();
-  bool _check = false;
+  bool _check = false;// this will check if the bill is paid or not.
 
   String billnchk, pnamechk, notechk, pricechk;
-
+// declaring the string 
   @override
   void dispose() {
+    // disposing the controller.
     billController.dispose();
     pnameController.dispose();
     noteController.dispose();
@@ -36,9 +37,11 @@ class _BilleScreenState extends State<BilleScreen> {
 
   @override
   void initState() {
+    //  
     final billProvider = Provider.of<BillProvider>(context, listen: false);
     if (widget.bill != null) {
       //Edit
+      // setting the values from the provider to controller to edit.
       billController.text = widget.bill.bill;
       pnameController.text = widget.bill.pname;
       noteController.text = widget.bill.note;
@@ -47,6 +50,7 @@ class _BilleScreenState extends State<BilleScreen> {
       billProvider.loadAll(widget.bill);
     } else {
       //Add
+      // setting all value to null if we are adding.
       billProvider.loadAll(null);
     }
     super.initState();
@@ -57,11 +61,13 @@ class _BilleScreenState extends State<BilleScreen> {
     final billProvider = Provider.of<BillProvider>(context);
     return Scaffold(
       appBar: AppBar(
+        // getting the date from the controller.
           title: Text(formatDate(billProvider.date, [MM, ' ', d, ', ', yyyy])),
           actions: [
             IconButton(
               icon: Icon(Icons.calendar_today),
               onPressed: () {
+                // 
                 _pickDate(context, billProvider).then((value) {
                   if (value != null) {
                     billProvider.changeDate = value;
@@ -122,11 +128,7 @@ class _BilleScreenState extends State<BilleScreen> {
               color: Colors.green,
               child: Text('Save', style: TextStyle(color: Colors.white)),
               onPressed: () {
-                //print("the bill name is" + billnchk);
-               // print("the note is" + notechk);
-                //print("the pname is" + pnamechk);
-               // print("the price is " + pricechk);
-               // print("hi");
+              
                  billProvider.changepaid(_check);
                 billProvider.saveBill();
 

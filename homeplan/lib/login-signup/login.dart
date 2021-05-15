@@ -1,21 +1,20 @@
-//import 'package:homeplan/login-signup/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:homeplan/authentication.dart';
 import 'package:homeplan/loading-screen/load.dart';
-//import 'package:homeplan/login-signup/auth.dart';
-
+// this the login screen of the app
 
 class SignInPage extends StatefulWidget {
   static Widget create(BuildContext context) => SignInPage();
-
+// we are calling the function to toggle between screen.
   final Function toggleView;
   SignInPage({this.toggleView});
   @override
   _SignInwin createState() => _SignInwin();
 }
 
+//creating state extending the class
 class _SignInwin extends State<SignInPage> {
   final fkey = GlobalKey<FormState>();
   // intialising variables for text field
@@ -28,14 +27,14 @@ class _SignInwin extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return loading
+    return loading // calling the loading screen to show up when the user click on signin button.
         ? Loading()
         : Scaffold(
-            backgroundColor: Color(0x99acdef8),
+            backgroundColor: Color(0x99394657),
             appBar: AppBar(
               elevation: 0.0,
               title: Text('Login Window'),
-              backgroundColor: Color(0x33acdef8),
+              backgroundColor: Color(0x99384556),
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.app_registration),
@@ -56,7 +55,8 @@ class _SignInwin extends State<SignInPage> {
                             Padding(
                               padding: EdgeInsets.only(top: 18.0),
                               child: Image.asset(
-                                "assets/images/app_icon.png",
+                                // display the app icon
+                                "assets/images/app_icon2.png",
                                 width: 100,
                                 height: 100,
                               ),
@@ -66,6 +66,7 @@ class _SignInwin extends State<SignInPage> {
                               validator: MultiValidator([
                                 RequiredValidator(errorText: "Required"),
                                 EmailValidator(
+                                    // doing the email validation
                                     errorText: 'enter a valid email address')
                               ]),
                               decoration: InputDecoration(
@@ -77,6 +78,7 @@ class _SignInwin extends State<SignInPage> {
                               },
                             ),
                             Padding(
+                              //  adding text field to get email and password. to login the user after the validation.
                               padding: EdgeInsets.only(top: 18.0),
                               child: TextFormField(
                                 controller: passwordc,
@@ -97,7 +99,7 @@ class _SignInwin extends State<SignInPage> {
                                   top: 18.0,
                                 ),
                                 child: RaisedButton(
-                                  onPressed: () {
+                                  onPressed: () {       // login button
                                     print(email);
                                     print(password);
                                     print(email.isNotEmpty);
@@ -107,17 +109,19 @@ class _SignInwin extends State<SignInPage> {
                                         (password.length > 6)) {
                                       print('validated');
 
-                                     setState(() => loading = true);
+                                      setState(() => loading = true);
                                       context
-                                          .read<AuthenticationService>()
+                                          .read<
+                                              AuthenticationService>() // calling the firebase auth class to check the email and
                                           .signinem(
+                                            // login the user to the app home screen.
                                             email: emailc.text.trim(),
                                             password: passwordc.text.trim(),
                                           );
-                                 
                                     } else {
                                       print('not validated');
-                                      setState(() => loading = false);
+                                      setState(() => loading =
+                                          false); // calling the loading widget.
                                     }
                                   },
                                   child: Text("Sign in"),

@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+// this is a auth check wrapper which will check if there is a firbase user.
+// if there is a user then direct to the home page. If not the sent back to signinpage.
 class AuthenticationWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

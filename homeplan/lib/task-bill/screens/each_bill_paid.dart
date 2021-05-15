@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 class BillpScreen extends StatefulWidget {
   final Bill bill;
-
+// this widget is to get the selected paid bill and show the details
   BillpScreen({this.bill});
 
   @override

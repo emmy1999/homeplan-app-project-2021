@@ -28,7 +28,7 @@ class _TaskScreenState extends State<TaskScreen> {
     statusController.dispose();
     super.dispose();
   }
-
+// this is the task screen where a user can add a task and displays all the task created by the user from the database.
   @override
   void initState() {
     final taskProvider = Provider.of<TaskProvider>(context, listen: false);

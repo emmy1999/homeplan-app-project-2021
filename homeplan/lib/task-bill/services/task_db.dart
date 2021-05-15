@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:homeplan/task-bill/models/task.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+// THis part will communicate directly with the database and do the crud operation.
 class FirestoreService {
   FirebaseFirestore _db = FirebaseFirestore.instance;
   //String uid = FirebaseAuth.instance.currentUser.uid;

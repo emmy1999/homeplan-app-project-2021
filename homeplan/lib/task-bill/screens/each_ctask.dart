@@ -12,7 +12,7 @@ class CTaskScreen extends StatefulWidget {
   @override
   _CTaskScreenState createState() => _CTaskScreenState();
 }
-
+// this will show more details of the user selected completed task.
 class _CTaskScreenState extends State<CTaskScreen> {
   final taskController = TextEditingController();
   final pnameController = TextEditingController();

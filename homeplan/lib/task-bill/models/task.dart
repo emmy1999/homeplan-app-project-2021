@@ -9,7 +9,7 @@ class Task {
   final bool status;
 
   Task({this.date, this.task, this.pname,this.status, this.note, @required this.taskId});
-
+// converting the data from database from json and mapping to the task
   factory Task.fromJson(Map<String, dynamic> json) {
     return Task(
         date: json['date'],

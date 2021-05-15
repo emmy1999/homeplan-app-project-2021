@@ -8,7 +8,7 @@ import 'package:homeplan/nav_bar.dart';
 
 class Bill_paid extends StatelessWidget {
   @override
-
+// this widget will display all the paid bills 
   Widget build(BuildContext context) {
     final billProvider = Provider.of<BillProvider>(context);
     return Scaffold(
@@ -24,6 +24,7 @@ class Bill_paid extends StatelessWidget {
                   padding: EdgeInsets.all(12),
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {
+                    
                     return ListTile(
                      
                       title: Text(snapshot.data[index].pname),

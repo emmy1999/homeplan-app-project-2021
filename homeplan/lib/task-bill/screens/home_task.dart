@@ -10,6 +10,7 @@ class Task_view extends StatelessWidget {
     bool loading = false;
   Widget build(BuildContext context) {
     final taskProvider = Provider.of<TaskProvider>(context);
+    // this is the task screen which display all the user created task from the database using stream builder.
     return Scaffold(
       drawer: NavBar(),
       appBar: AppBar(title: Text('Task'), backgroundColor: Color(0x33acdef8)),

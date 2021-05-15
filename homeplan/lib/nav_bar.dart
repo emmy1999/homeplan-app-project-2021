@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homeplan/home.dart';
-import 'package:homeplan/task-bill/screens/task_app.dart';
+import 'package:homeplan/task-bill/screens/task_ms.dart';
 import 'package:homeplan/task-bill/screens/settings.dart';
 import 'package:homeplan/task-bill/screens/comp_task_ms.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,7 +10,8 @@ import 'package:homeplan/task-bill/screens/bill_paid_ms.dart';
 //import 'package:homeplan/bills/bill_app.dart';
 
 String name = "BOB";
-
+// this is the navigation bar of the app.
+// this could be used to navigate to different screens.
 class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

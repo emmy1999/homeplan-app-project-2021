@@ -16,7 +16,7 @@ class Profilev extends StatefulWidget {
 
 String fname;
 String lname;
-
+// this is the settings screen where a user can add, update first name and last name.
 class Profile_view extends State<Profilev> {
   final TextEditingController fnm = TextEditingController();
   final TextEditingController lnm = TextEditingController();

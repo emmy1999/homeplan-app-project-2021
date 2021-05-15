@@ -3,6 +3,10 @@ import 'package:homeplan/task-bill/models/bills.dart';
 import 'package:homeplan/task-bill/services/bills_db.dart';
 import 'package:uuid/uuid.dart';
 
+
+// this is the provider class which act between the the front end and the backend for database interaction
+
+
 class BillProvider with ChangeNotifier {
   final firestoreService = FirestoreService();
   DateTime _date;
@@ -12,15 +16,17 @@ class BillProvider with ChangeNotifier {
   String _note;
   String _price;
   bool _paid;
-  var uuid = Uuid();
+  var uuid = Uuid();// get unique id using the package.
 
-  //Getters
+  //Getters 
   DateTime get date => _date;
   String get bill => _bill;
   String get pname => _pname;
   String get price => price;
   // String get note => _note;
+  // stream for all bills
   Stream<List<Bill>> get bills => firestoreService.getbills();
+  // stream for paid bills.
   Stream<List<Bill>> get billsp => firestoreService.getpaidbills();
   //Setters
   set changeDate(DateTime date) {
@@ -100,7 +106,7 @@ class BillProvider with ChangeNotifier {
       firestoreService.setbill(updatedBill);
     }
   }
-
+// remove a bill with the unique bill id.
   removebill(String billId) {
     firestoreService.removebill(billId);
   }

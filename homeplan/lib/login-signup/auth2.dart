@@ -6,11 +6,12 @@ class Authenticate extends StatefulWidget {
   @override
   _AuthenticateState createState() => _AuthenticateState();
 }
+// this code is used to toggle between signin and signup screen.
 
 class _AuthenticateState extends State<Authenticate> {
   bool showSignIn = true;
   void toggleView() {
-    //print(showSignIn.toString());
+   
     setState(() => showSignIn = !showSignIn);
   }
 

@@ -47,6 +47,7 @@ class TaskProvider with ChangeNotifier {
   }
 
   //Functions
+  // this will pass all the values from the database to the form.
   loadAll(Task task) {
     if (task != null) {
       _date = DateTime.parse(task.date);
@@ -64,7 +65,7 @@ class TaskProvider with ChangeNotifier {
       _status = false;
     }
   }
-
+// this will insert and update new task.
   saveTask() {
     if (_taskId == null) {
       //Add
@@ -78,7 +79,7 @@ class TaskProvider with ChangeNotifier {
       print(newTask.task);
       firestoreService.setTask(newTask);
     } else {
-      //Edit
+      //Edit 
       var updatedTask = Task(
           date: _date.toIso8601String(),
           task: _task,
@@ -90,6 +91,7 @@ class TaskProvider with ChangeNotifier {
     }
   }
 
+// remove the task using id.
   removeTask(String taskId) {
     firestoreService.removeTask(taskId);
   }

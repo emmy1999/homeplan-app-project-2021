@@ -18,16 +18,19 @@ class AuthenticationService {
   /// This won't pop routes so you could do something like
   /// Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
   /// after you called this method if you want to pop all routes.
+  /// 
+  // this method will sigout the firebase user.
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     AuthenticationWrapper();
-    //return new SignInPage();
+    
   }
 
   /// There are a lot of different ways on how you can do exception handling.
   /// This is to make it as easy as possible but a better way would be to
   /// use your own custom class that would take the exception and return better
   /// error messages. That way you can throw, return or whatever you prefer with that instead.
+  // sign in method.
   Future<String> signinem({String email, String password}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
@@ -39,10 +42,7 @@ class AuthenticationService {
     }
   }
 
-  /// There are a lot of different ways on how you can do exception handling.
-  /// This is to make it as easy as possible but a better way would be to
-  /// use your own custom class that would take the exception and return better
-  /// error messages. That way you can throw, return or whatever you prefer with that instead.
+// signup method 
   Future<String> signupem({String email, String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
