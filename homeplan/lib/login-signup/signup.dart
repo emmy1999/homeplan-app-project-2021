@@ -27,7 +27,7 @@ class _Signupwin extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0x99394657),
+      backgroundColor: Color(0x99acdef8),
       appBar: AppBar(
         elevation: 0.0,
         title: Text('Signup Window'),
@@ -49,11 +49,11 @@ class _Signupwin extends State<SignupPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(bottom: 16.0),
+                        padding: EdgeInsets.only(top:0),
                         child: Image.asset(
                           "assets/images/app_icon2.png",
                           width: 100,
-                          height: 100,
+                          height: 30,
                         ),
                       ),
                       TextFormField(
@@ -66,12 +66,10 @@ class _Signupwin extends State<SignupPage> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "enter your Email address",
-                          hintStyle: TextStyle(color: Colors.white),
                         ),
                         onChanged: (val) {
                           setState(() => email = val);
                         },
-                        style: TextStyle(color: Colors.white),
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 18.0),
@@ -82,13 +80,11 @@ class _Signupwin extends State<SignupPage> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "enter your Password",
-                            hintStyle: TextStyle(color: Colors.white),
                           ),
                           obscureText: true,
                           onChanged: (val) {
                             setState(() => password = val);
                           },
-                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                       Padding(
@@ -99,13 +95,11 @@ class _Signupwin extends State<SignupPage> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "verify your Password",
-                            hintStyle: TextStyle(color: Colors.white),
                           ),
                           obscureText: true,
                           onChanged: (val) {
                             setState(() => password2 = val);
                           },
-                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                       Padding(
@@ -135,7 +129,7 @@ class _Signupwin extends State<SignupPage> {
                               }
                             },
                             child: Text("Sign up"),
-                            color: Color(0x99c5af6d),
+                            color: Color(0xffea4d1b),
                           )),
                     ],
                   )))),

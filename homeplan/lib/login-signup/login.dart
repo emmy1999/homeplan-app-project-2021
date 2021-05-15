@@ -30,11 +30,11 @@ class _SignInwin extends State<SignInPage> {
     return loading // calling the loading screen to show up when the user click on signin button.
         ? Loading()
         : Scaffold(
-            backgroundColor: Color(0x99394657),
+            backgroundColor: Color(0x99acdef8),
             appBar: AppBar(
               elevation: 0.0,
               title: Text('Login Window'),
-              backgroundColor: Color(0x99384556),
+              backgroundColor: Color(0x33acdef8),
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.app_registration),
@@ -53,7 +53,7 @@ class _SignInwin extends State<SignInPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.only(bottom: 16.0),
+                              padding: EdgeInsets.only(top: 18.0),
                               child: Image.asset(
                                 // display the app icon
                                 "assets/images/app_icon2.png",
@@ -72,12 +72,10 @@ class _SignInwin extends State<SignInPage> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: "enter your Email address",
-                                hintStyle: TextStyle(color: Colors.white),
                               ),
                               onChanged: (val) {
                                 setState(() => email = val);
                               },
-                              style: TextStyle(color: Colors.white),
                             ),
                             Padding(
                               //  adding text field to get email and password. to login the user after the validation.
@@ -89,13 +87,11 @@ class _SignInwin extends State<SignInPage> {
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(),
                                   hintText: "enter your Password",
-                                  hintStyle: TextStyle(color: Colors.white),
                                 ),
                                 obscureText: true,
                                 onChanged: (val) {
                                   setState(() => password = val);
                                 },
-                                style: TextStyle(color: Colors.white),
                               ),
                             ),
                             Padding(
@@ -129,7 +125,7 @@ class _SignInwin extends State<SignInPage> {
                                     }
                                   },
                                   child: Text("Sign in"),
-                                  color: Color(0x99c5af6d),
+                                  color: Colors.blue,
                                 )),
                           ],
                         )))),
