@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:homeplan/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 
 class SignupPage extends StatefulWidget {
   final Function toggleView;
@@ -15,19 +13,18 @@ class SignupPage extends StatefulWidget {
 }
 
 class _Signupwin extends State<SignupPage> {
-
-
   // intialising variables for text field
   String email;
   String password, password2;
   final TextEditingController emailc = TextEditingController();
   final TextEditingController passwordc = TextEditingController();
-  final auth = FirebaseAuth.instance; // signing up the user after checking the email and password.
+  final auth = FirebaseAuth
+      .instance; // signing up the user after checking the email and password.
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0x99acdef8),
+      backgroundColor: Color(0x99394657),
       appBar: AppBar(
         elevation: 0.0,
         title: Text('Signup Window'),
@@ -49,7 +46,7 @@ class _Signupwin extends State<SignupPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(top:0),
+                        padding: EdgeInsets.only(top: 0),
                         child: Image.asset(
                           "assets/images/app_icon2.png",
                           width: 100,
@@ -108,8 +105,6 @@ class _Signupwin extends State<SignupPage> {
                           ),
                           child: RaisedButton(
                             onPressed: () {
-                          
-
                               if ((email.contains('@')) &&
                                   (password.length > 6)) {
                                 print('validated');
@@ -122,7 +117,6 @@ class _Signupwin extends State<SignupPage> {
                                       );
                                 } else {
                                   print('password did not match');
-                             
                                 }
                               } else {
                                 print('not validated');

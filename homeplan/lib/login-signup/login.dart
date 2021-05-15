@@ -30,11 +30,11 @@ class _SignInwin extends State<SignInPage> {
     return loading // calling the loading screen to show up when the user click on signin button.
         ? Loading()
         : Scaffold(
-            backgroundColor: Color(0x99acdef8),
+            backgroundColor: Color(0x99394657),
             appBar: AppBar(
               elevation: 0.0,
               title: Text('Login Window'),
-              backgroundColor: Color(0x33acdef8),
+              backgroundColor: Color(0x99384556),
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.app_registration),
