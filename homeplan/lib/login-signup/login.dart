@@ -53,7 +53,7 @@ class _SignInwin extends State<SignInPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.only(top: 18.0),
+                              padding: EdgeInsets.only(bottom: 16.0),
                               child: Image.asset(
                                 // display the app icon
                                 "assets/images/app_icon2.png",
@@ -72,10 +72,12 @@ class _SignInwin extends State<SignInPage> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: "enter your Email address",
+                                hintStyle: TextStyle(color: Colors.white),
                               ),
                               onChanged: (val) {
                                 setState(() => email = val);
                               },
+                              style: TextStyle(color: Colors.white),
                             ),
                             Padding(
                               //  adding text field to get email and password. to login the user after the validation.
@@ -87,11 +89,13 @@ class _SignInwin extends State<SignInPage> {
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(),
                                   hintText: "enter your Password",
+                                  hintStyle: TextStyle(color: Colors.white),
                                 ),
                                 obscureText: true,
                                 onChanged: (val) {
                                   setState(() => password = val);
                                 },
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
                             Padding(
@@ -125,7 +129,7 @@ class _SignInwin extends State<SignInPage> {
                                     }
                                   },
                                   child: Text("Sign in"),
-                                  color: Colors.blue,
+                                  color: Color(0x99c5af6d),
                                 )),
                           ],
                         )))),
