@@ -72,6 +72,7 @@ class _SignInwin extends State<SignInPage> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: "enter your Email address",
+                                hintStyle: TextStyle(color: Colors.white),
                               ),
                               onChanged: (val) {
                                 setState(() => email = val);
@@ -87,11 +88,13 @@ class _SignInwin extends State<SignInPage> {
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(),
                                   hintText: "enter your Password",
+                                  hintStyle: TextStyle(color: Colors.white),
                                 ),
                                 obscureText: true,
                                 onChanged: (val) {
                                   setState(() => password = val);
                                 },
+                                //style: TextStyle(color: Colors.white),
                               ),
                             ),
                             Padding(
@@ -99,7 +102,8 @@ class _SignInwin extends State<SignInPage> {
                                   top: 18.0,
                                 ),
                                 child: RaisedButton(
-                                  onPressed: () {       // login button
+                                  onPressed: () {
+                                    // login button
                                     print(email);
                                     print(password);
                                     print(email.isNotEmpty);
@@ -125,7 +129,7 @@ class _SignInwin extends State<SignInPage> {
                                     }
                                   },
                                   child: Text("Sign in"),
-                                  color: Colors.blue,
+                                  color: Color(0x99c5af6d),
                                 )),
                           ],
                         )))),
